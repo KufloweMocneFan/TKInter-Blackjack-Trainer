@@ -2,10 +2,13 @@
 
 ## **Purpose and rules**
 
-This is a simple blackjack training software for memorizing basic strategy written in tkinter. It shows an upcard and a hand and after your move it gives feedback and what the correct move was.  
-As it is **NOT** a game or a simulator no more cards will be drawn and you will be just given the next hand and shown a new upcard.  
-Also every 5 hands (and on the first hand) you will have to enter the current count before you will be allowed to make a move.  
-The count is established using Hi-Opt II strategy (+1 for 2, 3, 6, 7, +2 for 4, 5, -2 for all tens, rest is 0).
+This is a simple blackjack training software for memorizing basic strategy written in tkinter. It shows an upcard and a hand, and after you make a move, it compares it to what the correct one was based on basic strategy and gives you feedback on whether you made a mistake or not.  
+  
+  As it is **NOT** a game or a simulator, no more cards will be drawn after each move, and you will just be given the next hand and shown a new upcard.  
+  
+  Also every 5 hands (and on the first hand), you will have to enter the current count before you will be allowed to make a move.  
+  
+  The count is calculated using Hi-Opt II strategy (+1 for 2, 3, 6, 7; +2 for 4, 5; -2 for all tens; the rest is 0).
 
 ## **Usage**
 
