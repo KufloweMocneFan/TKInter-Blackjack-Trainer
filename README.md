@@ -4,6 +4,8 @@
 
 This is a simple blackjack training software for memorizing basic strategy written in tkinter. It shows an upcard and a hand, and after you make a move, it compares it to what the correct one was based on basic strategy and gives you feedback on whether you made a mistake or not.  
   
+  Every wrong move you make is saved to ***mistakes.txt*** so you can keep track of hands you still don't remember. They're saved as *(total, set) n* format where *n* stands for a number of times you got that hand wrong and *set* is one of *HARD/SOFT/SPLITS*.  
+
   As it is **NOT** a game or a simulator, no more cards will be drawn after each move, and you will just be given the next hand and shown a new upcard.  
   
   Also every 5 hands (and on the first hand), you will have to enter the current count before you will be allowed to make a move.  

@@ -212,10 +212,30 @@ class GUI():
 
         def handle_any_btn(move: str) -> None:
             nonlocal correct_move_guesses, accuracy_percent, games_count, changed
+            total, set = self.trainer.player.hand.get_total()
             if games_count % 5 == 0 and not changed:
                 correct_label.configure(text="Guess current count", fg="#FFFFFF")
                 return
             correct_move, is_move_correct = self.trainer.check_move(move, self.trainer.dealer.get_upcard(), self.trainer.player.hand)
+            if not is_move_correct:
+                with open("mistakes.txt", mode="a+", encoding="utf-8") as f:
+                    f.seek(0)
+                    lines = f.readlines()
+                    target = f"{total, set}"
+                    found = False
+                    for i, line in enumerate(lines):
+                        if target in line:
+                            parts = line.rstrip("\n").split()
+                            count = int(parts[-1]) + 1
+                            parts[-1] = str(count)
+                            lines[i] = " ".join(parts) + "\n"
+                            found = True
+                            break
+                    if not found:
+                        lines.append(f"{target} 1\n")
+                    f.seek(0)
+                    f.truncate()
+                    f.writelines(lines)
             correct_move_guesses += 1 if is_move_correct else 0
             games_count += 1
             accuracy_percent = correct_move_guesses / games_count
